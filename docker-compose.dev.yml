@@ -3,10 +3,13 @@ version: '3'
 services:
   app:
     container_name: laravel
-    build: ./infra/dev/laravel
+    build: 
+      context: .
+      dockerfile: ./infra/dev/laravel/Dockerfile
     volumes:
       - ./app:/var/www/app
     working_dir: /var/www/app
+
   nginx:
     image: nginx
     container_name: nginx

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    container_name: laravel
+    build: 
+      context: .
+      dockerfile: ./infra/prod/laravel/Dockerfile
+  nginx:
+    build: 
+      context: .
+      dockerfile: ./infra/prod/nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - 80:80
+    links:
+      - app
+  

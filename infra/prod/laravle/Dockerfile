@@ -1,7 +1,7 @@
 # baseイメージ
 FROM php:7.2-fpm
 # ローカルのphp設定ファイルをコンテナ内に配置
-COPY ./infra/dev/laravel/php.ini /usr/local/etc/php/
+COPY ./infra/prod/laravel/php.ini /usr/local/etc/php/
 
 # 必要な物インストール
 RUN apt-get update && apt-get install -y && \
@@ -15,7 +15,8 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \ 
     apt-get update && \
     apt-get install -y nodejs
-
+RUN mkdir /var/www/app 
+ADD ./app /var/www/app
 # Composerの設定
 ENV COMPOSER_HOME /composer
 
