@@ -1,4 +1,4 @@
-FROM nginx:1.17-alpine
+FROM nginx:latest
 
 COPY ./infra/prod/nginx/conf/default.conf /etc/nginx/conf.d/default.conf
-COPY ./src/public /var/www/app/public
+COPY ./app/public /var/www/app/public

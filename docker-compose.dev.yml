@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./infra/dev/laravel/Dockerfile
     volumes:
-      - ./app:/var/www/app
+      - ./src:/var/www/app
     working_dir: /var/www/app
 
   nginx:
@@ -15,7 +15,7 @@ services:
     container_name: nginx
     volumes:
       - ./infra/dev/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf
-      - ./app/public:/var/www/app/public
+      - ./src/public:/var/www/app/public
     ports:
       - 80:80
     links:
