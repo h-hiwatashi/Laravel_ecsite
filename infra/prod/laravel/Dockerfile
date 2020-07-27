@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y && \
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 #リソースコピー
+RUN mkdir /var/www/app
 COPY ./src /var/www/app
 
 # Node.jsインストール

@@ -16,7 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update && \
     apt-get install -y nodejs
 RUN mkdir /var/www/app 
-ADD ./app /var/www/app
+ADD ./src /var/www/app
 # Composerの設定
 ENV COMPOSER_HOME /composer
 
