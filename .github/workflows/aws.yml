@@ -55,7 +55,7 @@ jobs:
       id: build-image-nginx
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ecsite-laravel/nginx
+        ECR_REPOSITORY: nginx-ecsite
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
@@ -64,12 +64,13 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG infra/prod/nginx/Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        
   
     - name: App Build, tag, and push image to Amazon ECR
       id: build-image-laravel
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ecsite-laravel/laravel
+        ECR_REPOSITORY: php_ecsite
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
