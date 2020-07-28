@@ -99,6 +99,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def-laravel.outputs.task-definition }}
-        service: sample-app-service
+        service: ecsite-laravel-service
         cluster: ecsite-laravel
         wait-for-service-stability: true
