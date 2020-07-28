@@ -1,5 +1,7 @@
 ●ECRのプッシュ時注意点●
 1、ログイン時の注意点
+前提:AWS cliインストール済み、プロファイル設定済み
+
 https://qiita.com/noz_mikally/items/970b340caab59e8afb2e
 ECRにdockerをプッシュする時に、credentialsのエラーが出たときの対処
 
