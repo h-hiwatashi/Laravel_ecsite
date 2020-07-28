@@ -13,3 +13,8 @@ sudo docker kill $(sudo docker ps -a -q)
 
 コンテナの停止、ネットワーク・名前付きボリューム・コンテナイメージを削除
 docker-compose -f docker-compose.prod.yml down --volumes --rmi all
+
+Laravelのエラー：
+Fatal error: require(): Failed opening required '/project/vendor/autoload.php' (include_path='.:') in /project/artisan on line *
+composerのがインストールされていないため↓
+https://qiita.com/chimayu/items/82d9d457a056829b3b2e
